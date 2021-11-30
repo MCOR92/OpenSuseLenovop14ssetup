@@ -1,0 +1,8 @@
+first problem was that the trackpad and keyboard wernt setup properly.
+  had to setup in system setting inside Yast.
+second problem was that the sleep mode wasnt working correctly,
+	 so i tried putting this:'splash=silent quiet snd_hda_codec_hdmi.enable_silent_stream=0' into yast bootloader which didnt work perfectly so i went into BIOS 
+   and changed the lenovo sleep mode from windows to linux, which is working perfectly now.
+third The function key lights (mute,micmute) were staying on when pressed so i used 'sys/class/leds> ls' to find the function keys and then:
+	' echo 0 | sudo tee /sys/class/leds/platform\:\:mute/brightness' 
+	1 being on and 0 being off to solve the problem for now but i would like to return here whole function later. 
